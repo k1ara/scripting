@@ -1,0 +1,28 @@
+services:
+  db_ocs:
+    image: mariadb:11  # puedes fijar 10.6 si quieres ser conservador
+    container_name: db_ocs
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=ocsweb
+      - MYSQL_USER=ocs
+      - MYSQL_PASSWORD=ocs24cfe
+      - TZ=America/Panama
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mariadb-data:/var/lib/mysql
+    networks:
+      - mi-red
+
+networks:
+  mi-red:
+    external: true
+
+# Comandos para restaurar la base de datos desde un respaldo SQL:
+# Ejecutar antes de este docker-compose ya que si no existe la BD no se podrá restaurar
+# CREATE DATABASE IF NOT EXISTS ocsweb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+# USE ocsweb;
+# SOURCE /tmp/respaldo2.sql;
+
