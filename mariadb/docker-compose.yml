@@ -22,6 +22,7 @@ networks:
 
 # Comandos para restaurar la base de datos desde un respaldo SQL:
 # Ejecutar antes de este docker-compose ya que si no existe la BD no se podrá restaurar
+# respaldo2.sql es el archivo de respaldo el cual debe ubicarse dentro del contenedor mariadb
 # CREATE DATABASE IF NOT EXISTS ocsweb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 # USE ocsweb;
 # SOURCE /tmp/respaldo2.sql;
