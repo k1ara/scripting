@@ -45,3 +45,9 @@ services:
       - ./asterisk-spool:/var/spool/asterisk
       - ./recordings:/var/spool/asterisk/monitor
       - ./backups:/var/spool/asterisk/backup
+    networks:
+      - mi-red
+
+networks:
+  mi-red:
+    external: true

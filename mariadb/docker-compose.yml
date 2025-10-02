@@ -1,10 +1,10 @@
 services:
   mariadb:
     image: mariadb:11  # puedes fijar 10.6 si quieres ser conservador
-    container_name: mariadb
+    container_name: maria-db
     restart: always
     environment:
-      - MARIADB_ROOT_PASSWORD=rootpass
+      - MARIADB_ROOT_PASSWORD=Sup3rp4s5*!
       - MYSQL_DATABASE=ocsweb
       - MYSQL_USER=ocs
       - MYSQL_PASSWORD=ocs24cfe
