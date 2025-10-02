@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
     environment:
       DB_EMBEDDED: "FALSE"          # ← fuerza DB externa
-      DB_HOST: freepbx-db           # ← nombre del servicio (DNS interno)
+      DB_HOST: mariadb           # ← nombre del contenedor o servicio de la base de datos
       DB_NAME: freepbx
       DB_USER: freepbxuser
       DB_PASS: "Fr33us3rpbx."
