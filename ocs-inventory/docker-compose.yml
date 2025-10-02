@@ -16,14 +16,14 @@ services:
 
     environment:
       TZ: America/Panama
-      OCS_DB_SERVER: mariadb  # 🔒 cámbialo si usas otro host o IP
+      OCS_DB_SERVER: mariadb  # 🔒 cámbialo si usas otro host o contenedor
       OCS_DB_PORT: "3306"
       OCS_DB_NAME: ocsweb
       OCS_DB_USER: ocs
       OCS_DB_PASS: ocs24cfe
     volumes:
-      - ./ocs-data:/var/lib/ocsinventory-reports
-      - ./ocs-logs:/var/log/ocsinventory-server
+      - ./ocs-data:/var/lib/ocsinventory-reports # 🔒 crear este volumen manualmente
+      - ./ocs-logs:/var/log/ocsinventory-server  # 🔒 crear este volumen manualmente
 networks:
   mi-red:
-    external: true
+    external: true # 🔒 importante si la red ya existe
