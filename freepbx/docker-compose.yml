@@ -1,24 +1,22 @@
-#version: "3.8"
-
 services:
-  freepbx-db:
-    image: mariadb:10.11
-    container_name: maria-db
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: "Sup3rp4s5*!"
-      MYSQL_DATABASE: freepbx
-      MYSQL_USER: freepbxuser
-      MYSQL_PASSWORD: "Fr33us3rpbx."
-      TZ: America/Panama
-    volumes:
-      - ./db-data:/var/lib/mysql
+  # freepbx-db:                     # ← si no existiera una base de datos externa, descomenta este bloque
+  #   image: mariadb:10.11
+  #   container_name: maria-db
+  #   restart: unless-stopped
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: "Sup3rp4s5*!"
+  #     MYSQL_DATABASE: freepbx
+  #     MYSQL_USER: freepbxuser
+  #     MYSQL_PASSWORD: "Fr33us3rpbx."
+  #     TZ: America/Panama
+  #   volumes:
+  #     - ./db-data:/var/lib/mysql
 
   freepbx:
     image: tiredofit/freepbx:latest
     container_name: freepbx
-    depends_on:
-      - freepbx-db
+    # depends_on:                 # ← esto descoméntalo si usas el servicio de DB interno
+    #   - freepbx-db
     restart: unless-stopped
     environment:
       DB_EMBEDDED: "FALSE"          # ← fuerza DB externa
